@@ -26,12 +26,15 @@ namespace Ciber.Services
                 && searchRequest.GetFieldMapping().ContainsKey(searchRequest.OrderBy.ToLower()))
             {
                 string sortField = searchRequest.GetFieldMapping()[searchRequest.OrderBy.ToLower()];
-                query = query.OrderBy(sortField);
-            }
-            else if (!string.IsNullOrEmpty(searchRequest.OrderByDesc) && searchRequest.GetFieldMapping().ContainsKey(searchRequest.OrderByDesc.ToLower()))
-            {
-                string sortField = searchRequest.GetFieldMapping()[searchRequest.OrderByDesc.ToLower()];
-                query = query.OrderByDescending(sortField);
+                if (searchRequest.OrderByDesc)
+                {
+                    query = query.OrderByDescending(sortField);
+                }
+                else
+                {
+                    query = query.OrderBy(sortField);
+                }
+                
             }
             if (searchRequest.PageSize > 0)
             {

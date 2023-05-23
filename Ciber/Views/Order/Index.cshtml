@@ -35,19 +35,19 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-orderBy="Name" asp-route-orderByDesc="Name" asp-route-currentFilter="@ViewData["CurrentFilter"]">OrderName</a>
+                <a asp-action="Index" asp-route-orderBy="Name" asp-route-orderByDesc="@ViewData["orderByDescValue"]">OrderName</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-orderBy="ProductName" asp-route-orderByDesc="ProductName" asp-route-currentFilter="@ViewData["CurrentFilter"]">ProductName</a>
+                <a asp-action="Index" asp-route-orderBy="ProductName" asp-route-orderByDesc="@ViewData["orderByDescValue"]">ProductName</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-orderBy="CategoryName" asp-route-orderByDesc="CategoryName" asp-route-currentFilter="@ViewData["CurrentFilter"]">CategoryName</a>
+                <a asp-action="Index" asp-route-orderBy="CategoryName" asp-route-orderByDesc="@ViewData["orderByDescValue"]">CategoryName</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-orderBy="OrderDate" asp-route-orderByDesc="OrderDate" asp-route-currentFilter="@ViewData["CurrentFilter"]">OrderDate</a>
+                <a asp-action="Index" asp-route-orderBy="OrderDate" asp-route-orderByDesc="@ViewData["orderByDescValue"]">OrderDate</a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-orderBy="Amount" asp-route-orderByDesc="Amount" asp-route-currentFilter="@ViewData["CurrentFilter"]">Amount</a>
+                <a asp-action="Index" asp-route-orderBy="Amount" asp-route-orderByDesc="@ViewData["orderByDescValue"]">Amount</a>
             </th>
         </tr>
     </thead>
