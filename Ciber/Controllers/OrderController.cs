@@ -5,6 +5,7 @@ using Ciber.Models.ViewModels;
 using Ciber.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,33 +25,17 @@ namespace Ciber.Controllers
         public async Task<IActionResult> Index(
             string searchTerm,
             string orderBy,
-            string orderByDesc,
-            string currentFilter,
+            bool orderByDesc,
+            bool nextPage,
             int pageIndex = 1
             )
         {
+            if (!nextPage)
+            {
+                ViewData["orderByDescValue"] = !orderByDesc;
+            }
+            
             ViewData["orderByValue"] = orderBy;
-            ViewData["orderByDescValue"] = orderByDesc;
-
-            if (!string.IsNullOrEmpty(currentFilter))
-            {
-                if (currentFilter == "acs")
-                {
-                    orderByDesc = null;
-                    ViewData["CurrentFilter"] = "desc";
-                }
-                else
-                {
-                    orderBy = null;
-                    ViewData["CurrentFilter"] = "acs";
-                }
-
-            }
-            else
-            {
-                ViewData["CurrentFilter"] = "acs";
-            }
-
             var request = new OrderListRequest
             {
                 SearchTerm = searchTerm,
@@ -61,6 +46,7 @@ namespace Ciber.Controllers
             };
 
             var data = await _orderService.GetPaging(request);
+            
 
             this.ViewBag.Pager = data.Paging;
             this.ViewBag.Products = _context.Products.Select(x => new SelectListItem

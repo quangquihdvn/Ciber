@@ -13,7 +13,7 @@ namespace Ciber.Models.Entities.Bases
             PageIndex = 1;
             PageSize = int.MaxValue;
             OrderBy = string.Empty;
-            OrderByDesc = string.Empty;
+            OrderByDesc = false;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Ciber.Models.Entities.Bases
         /// <summary>
         /// Has order by desc
         /// </summary>
-        public string OrderByDesc { get; set; }
+        public bool OrderByDesc { get; set; }
 
         /// <summary>
         /// Page offset

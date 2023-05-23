@@ -23,8 +23,8 @@
                     asp-controller="Order" 
                     asp-action="Index" 
                     asp-route-pageIndex="@pge" 
-                    asp-route-currentFilter="@ViewData["nextPage"]"
-                    asp-route-orderBy="@ViewData["orderByValue"]" 
+                    asp-route-orderBy="@ViewData["orderByValue"]"
+                    asp-route-nextPage="true"
                     asp-route-orderByDesc="@ViewData["orderByDescValue"]"
                     > @pge</a>
                 </li>
