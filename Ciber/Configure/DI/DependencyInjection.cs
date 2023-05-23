@@ -2,6 +2,7 @@
 using Ciber.Infrastructure.Infrastructure.EF;
 using Ciber.Models.Entities;
 using Ciber.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,7 @@ namespace Ciber.Configure.DI
             services.AddDbContext<CiberDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("MainDatabase")));
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IOrderService, OrderService>();
             return services;

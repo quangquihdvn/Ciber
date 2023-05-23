@@ -12,7 +12,7 @@ namespace Ciber.Models.Entities
         public Product Product { get; set; }
         public Guid ProductId { get; set; }
 
-        public decimal Amount { get; set; }
+        public int Amount { get; set; }
         public DateTime OrderDate { get; set; }
     }
 }

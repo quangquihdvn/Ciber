@@ -4,14 +4,16 @@ using Ciber.Infrastructure.Infrastructure.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ciber.Migrations
 {
     [DbContext(typeof(CiberDbContext))]
-    partial class CiberDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230523095002_Update_Length_All_Field")]
+    partial class Update_Length_All_Field
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -11,6 +11,16 @@ namespace Ciber.Infrastructure.EntityConfigurations
             builder.ToTable("Orders");
             builder.HasKey(o => o.Id);
 
+            builder.Property(o => o.Name)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Property(o => o.Amount)
+                .IsRequired();
+
+            builder.Property(o => o.OrderDate)
+                .IsRequired();
+
             builder.HasOne(x => x.Customer)
                 .WithMany(x => x.Orders)
                 .HasForeignKey(x => x.CustomerId)
