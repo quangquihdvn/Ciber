@@ -1,0 +1,84 @@
+﻿@using Ciber.Model.SeedWork
+@using Ciber.Models.Request
+@using Ciber.Models.ViewModels
+
+@model List<OrderListPagingModel>
+@{
+    ViewData["Title"] = "Manage Orders";
+
+    PagingSP pager = new PagingSP();
+
+    if(ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+    }
+}
+
+<h1>Index</h1>
+@*<p>
+    <a asp-action="Create">Create new order</a>
+</p>*@
+@*<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addOrder">
+    Create new order
+</button>*@
+
+<form asp-action="Index" method="get">
+    <div class="form-action no-color">
+        <p>
+            Find by name:<input type="text" name="searchTerm" placeholder="search"/>
+            <input type ="submit" value="Search" class="btn btn-success"/>
+        </p>
+    </div>
+</form>
+<a href="#" data-toggle="modal" data-target="#addOrder" style="text-decoration:underline;" >Create new order</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-orderBy="Name" asp-route-orderByDesc="Name" asp-route-currentFilter="@ViewData["CurrentFilter"]">OrderName</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-orderBy="ProductName" asp-route-orderByDesc="ProductName" asp-route-currentFilter="@ViewData["CurrentFilter"]">ProductName</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-orderBy="CategoryName" asp-route-orderByDesc="CategoryName" asp-route-currentFilter="@ViewData["CurrentFilter"]">CategoryName</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-orderBy="OrderDate" asp-route-orderByDesc="OrderDate" asp-route-currentFilter="@ViewData["CurrentFilter"]">OrderDate</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-orderBy="Amount" asp-route-orderByDesc="Amount" asp-route-currentFilter="@ViewData["CurrentFilter"]">Amount</a>
+            </th>
+        </tr>
+    </thead>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ProductName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.CategoryName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.OrderDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.Amount)
+            </td>
+        </tr>
+    }
+</table>
+
+<partial name="_pager" model="@pager"/>
+@await Html.PartialAsync("_AddNewOrder", new AddOrderRequest())
+
+@*<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addOrder">
+    Create new order
+</button>*@
