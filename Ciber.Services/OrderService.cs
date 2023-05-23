@@ -37,7 +37,7 @@ namespace Ciber.Services
 
             if (!string.IsNullOrEmpty(request.SearchTerm))
             {
-                request.SearchTerm = request.SearchTerm.ToLower();
+                request.SearchTerm = request.SearchTerm.ToLower().Trim();
                 query = query.Where(x => x.ProductName.ToLower().Contains(request.SearchTerm) ||
                                          x.CategoryName.ToLower().Contains(request.SearchTerm) ||
                                          x.CustomerName.ToLower().Contains(request.SearchTerm) ||
