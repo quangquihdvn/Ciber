@@ -8,6 +8,6 @@ namespace Ciber.Models.Request
         public Guid ProductId { get; set; }
         public Guid CustomerId { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
-        public decimal Amount { get; set; }
+        public int Amount { get; set; }
     }
 }

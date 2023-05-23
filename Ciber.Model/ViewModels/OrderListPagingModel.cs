@@ -11,6 +11,6 @@ namespace Ciber.Models.ViewModels
         public string CategoryName { get; set; }
         public string CustomerName { get; set; }
         public DateTime OrderDate { get; set; }
-        public decimal Amount { get; set; }
+        public int Amount { get; set; }
     }
 }

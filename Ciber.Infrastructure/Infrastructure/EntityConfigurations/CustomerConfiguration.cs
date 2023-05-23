@@ -10,6 +10,13 @@ namespace Ciber.Infrastructure.EntityConfigurations
         {
             builder.ToTable("Customers");
             builder.HasKey(o => o.Id);
+
+            builder.Property(o => o.Name)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Property(o => o.Address)
+                .HasMaxLength(200);
         }
     }
 }

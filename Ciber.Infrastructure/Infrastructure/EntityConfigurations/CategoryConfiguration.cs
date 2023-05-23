@@ -9,7 +9,14 @@ namespace Ciber.Infrastructure.EntityConfigurations
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.ToTable("Categories");
+
             builder.HasKey(o => o.Id);
+            builder.Property(o => o.Name)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Property(o => o.Description)
+                .HasMaxLength(150);
         }
     }
 }

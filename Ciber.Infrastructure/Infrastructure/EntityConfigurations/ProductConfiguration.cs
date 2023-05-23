@@ -11,6 +11,13 @@ namespace Ciber.Infrastructure.EntityConfigurations
             builder.ToTable("Products");
             builder.HasKey(o => o.Id);
 
+            builder.Property(o => o.Name)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder.Property(o => o.Description)
+                .HasMaxLength(200);
+
             builder.HasOne(x => x.Category)
                 .WithMany(x => x.Products)
                 .HasForeignKey(x => x.CategoryId)
