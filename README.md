@@ -19,3 +19,4 @@ This is project test of Niteco using .Net Core MVC
 - Log file
 - Code First
 - Auto seeding data
+- Unit test
