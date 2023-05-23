@@ -16,3 +16,4 @@ This is project test of Niteco using .Net Core MVC
 - Serial Log
 - Global Exception Filter
 - Authenticate
+- Log file
