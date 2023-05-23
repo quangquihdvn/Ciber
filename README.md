@@ -17,3 +17,5 @@ This is project test of Niteco using .Net Core MVC
 - Global Exception Filter
 - Authenticate
 - Log file
+- Code First
+- Auto seeding data
