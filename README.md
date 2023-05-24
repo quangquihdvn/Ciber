@@ -8,7 +8,7 @@ This is project test of Niteco using .Net Core MVC
 - Sourtree
 # How to run
 - Edit the connection string into appsettings.Development.json file
-- Run "update-database" in console
+- Set as startup project Ciber, default project Ciber.Infrastructure and Run "update-database" in console
 - Run by Ciber or IIS
 - User login: admin/ciber@123
 # Framework/Technology
