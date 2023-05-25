@@ -16,12 +16,16 @@ namespace Ciber.Controllers
     public class OrderController : Controller
     {
         private readonly IOrderService _orderService;
+        private readonly IProductService _productService;
         private readonly CiberDbContext _context;
-        public OrderController(IOrderService orderService,
-            CiberDbContext context)
+        public OrderController(
+            IOrderService orderService,
+            CiberDbContext context,
+            IProductService productService)
         {
             _orderService = orderService;
             _context = context;
+            _productService = productService;
         }
 
         public async Task<IActionResult> Index(
@@ -64,6 +68,12 @@ namespace Ciber.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(AddOrderRequest request)
         {
+            var quantity = await _productService.GetProductQuanttiy(request.ProductId);
+            if (request.Amount > quantity) 
+            {
+                TempData["warning"] = string.Format("Số lượng không được vượt quá {0}", quantity);
+                return RedirectToAction("Index", "Order");
+            }
             await _orderService.AddNewOrder(request);
             return RedirectToAction("Index", "Order");
         }

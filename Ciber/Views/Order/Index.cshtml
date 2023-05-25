@@ -14,13 +14,14 @@
     }
 }
 
+
 <h1>Manage Orders</h1>
-@*<p>
-    <a asp-action="Create">Create new order</a>
-</p>*@
-@*<button type="button" class="btn btn-info" data-toggle="modal" data-target="#addOrder">
-    Create new order
-</button>*@
+@if(TempData["warning"] != null)
+{
+    <div id="AlertBox" class="alert alert-danger hide" role="alert">
+                @TempData["warning"]
+            </div>
+}
 
 <form asp-action="Index" method="get">
     <div class="form-action no-color">
