@@ -40,7 +40,7 @@ namespace Ciber.Controllers
             {
                 SearchTerm = searchTerm,
                 PageIndex = pageIndex,
-                PageSize = 10,
+                PageSize = 5,
                 OrderBy = orderBy,
                 OrderByDesc = orderByDesc
             };

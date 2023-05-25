@@ -6,19 +6,19 @@
     {
         <ul class="pagination justify-content-end">
 
-            @if(Model.CurrentPage > 1)
+            @if(Model.PageIndex > 1)
             {
                 <li class="page-item">
                     <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="1">First</a>
                 </li>
                 <li>
-                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage - 1)">Previous</a>
+                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
                 </li>
             }
 
-            @for(var pge = Model.StartPage; pge <= Model.EndPage; pge++)
+            @for(var pge = 1; pge <= Model.TotalPages; pge++)
             {
-                <li class="page-item @(pge == Model.CurrentPage ? "active" : "")">
+                <li class="page-item @(pge == Model.PageIndex ? "active" : "")">
                     <a class="page-link" 
                     asp-controller="Order" 
                     asp-action="Index" 
@@ -30,10 +30,10 @@
                 </li>
             }
 
-            @if(Model.CurrentPage < Model.TotalPages)
+            @if(Model.PageIndex < Model.TotalPages)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.CurrentPage + 1)">Next</a>
+                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
                 </li>
                 <li class="page-item">
                     <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.TotalPages)">Last</a>
