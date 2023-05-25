@@ -26,15 +26,11 @@ namespace Ciber.Controllers
             string searchTerm,
             string orderBy,
             bool orderByDesc,
-            bool nextPage,
             int pageIndex = 1
             )
         {
-            if (!nextPage)
-            {
-                ViewData["orderByDescValue"] = !orderByDesc;
-            }
-            
+            ViewData["orderByDescNextPage"] = orderByDesc;
+            ViewData["orderByDescValue"] = !orderByDesc;
             ViewData["orderByValue"] = orderBy;
             var request = new OrderListRequest
             {

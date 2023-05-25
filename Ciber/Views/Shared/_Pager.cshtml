@@ -9,10 +9,10 @@
             @if(Model.PageIndex > 1)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="1">First</a>
+                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="1" asp-route-orderBy="@ViewData["orderByValue"]" asp-route-orderByDesc="@ViewData["orderByDescNextPage"]">First</a>
                 </li>
                 <li>
-                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-orderBy="@ViewData["orderByValue"]" asp-route-orderByDesc="@ViewData["orderByDescNextPage"]">Previous</a>
                 </li>
             }
 
@@ -24,8 +24,7 @@
                     asp-action="Index" 
                     asp-route-pageIndex="@pge" 
                     asp-route-orderBy="@ViewData["orderByValue"]"
-                    asp-route-nextPage="true"
-                    asp-route-orderByDesc="@ViewData["orderByDescValue"]"
+                    asp-route-orderByDesc="@ViewData["orderByDescNextPage"]"
                     > @pge</a>
                 </li>
             }
@@ -33,10 +32,10 @@
             @if(Model.PageIndex < Model.TotalPages)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-orderBy="@ViewData["orderByValue"]" asp-route-orderByDesc="@ViewData["orderByDescNextPage"]">Next</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.TotalPages)">Last</a>
+                    <a class="page-link" asp-controller="Order" asp-action="Index" asp-route-pageIndex="@(Model.TotalPages)" asp-route-orderBy="@ViewData["orderByValue"]" asp-route-orderByDesc="@ViewData["orderByDescNextPage"]">Last</a>
                 </li>
             }
         </ul>
