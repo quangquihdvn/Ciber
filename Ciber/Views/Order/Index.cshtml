@@ -13,6 +13,15 @@
         pager = ViewBag.Pager;
     }
 }
+@section scripts{
+    <script>
+        $(function () {           
+            $('#AlertBox').removeClass('hide');
+            $('#AlertBox').delay(2000).slideUp(500);
+        });
+ 
+    </script>
+    }
 
 
 <h1>Manage Orders</h1>
