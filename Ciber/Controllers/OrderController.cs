@@ -3,6 +3,7 @@ using Ciber.Infrastructure.Infrastructure.EF;
 using Ciber.Models.Request;
 using Ciber.Models.ViewModels;
 using Ciber.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Ciber.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderService _orderService;

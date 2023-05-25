@@ -3,6 +3,7 @@ using Ciber.Models;
 using Ciber.Models.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Ciber.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()

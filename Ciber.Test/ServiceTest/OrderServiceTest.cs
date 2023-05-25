@@ -11,7 +11,6 @@ namespace Ciber.Test.ServiceTest
     [TestClass]
     public class OrderServiceTest
     {
-        private CiberDbContext _context;
         private IOrderService _orderService;
 
         public OrderServiceTest()
